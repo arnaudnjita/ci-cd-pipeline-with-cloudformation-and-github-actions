@@ -15,5 +15,5 @@ Resources:
         - Sid: PublicReadGetObject
           Effect: Allow
           Principal: '*'
-          Action: [s3:PutBucketPolicy, s3:PutBucketOwnershipControls]
+          Action: [s3:CreateBucket, s3:PutBucketAcl]
           Resource: !Join ['', ['arn:aws:s3:::', !Ref S3Bucket, '/*']]
