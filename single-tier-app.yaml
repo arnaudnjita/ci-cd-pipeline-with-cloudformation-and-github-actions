@@ -3,7 +3,6 @@ Resources:
     Type: AWS::S3::Bucket
     Properties:
       BucketName: njita-static-website-bucket
-      AccessControl: PublicRead
       WebsiteConfiguration:
         IndexDocument: index.html
   BucketPolicy:
