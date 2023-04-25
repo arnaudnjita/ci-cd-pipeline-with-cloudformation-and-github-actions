@@ -1,4 +1,4 @@
-AWSTemplateFormatVersion: 2010-09-09
+AWSTemplateFormatVersion: "2012-10-17"
 Resources:
   S3Bucket:
     Type: AWS::S3::Bucket
@@ -14,7 +14,9 @@ Resources:
       PolicyDocument:
         Statement:
           - Sid: PublicReadGetObject
-            Effect: Allow
+            Effect: Deny
             Principal: '*'
             Action: 's3:GetObject'
             Resource: !Join ['', ['arn:aws:s3:::', !Ref S3Bucket, '/*']]
+            Condition:
+              - StringNotEquals: 's3:x-amz-object-ownership': BucketOwnerEnforced
