@@ -19,4 +19,5 @@ Resources:
             Action: 's3:GetObject'
             Resource: !Join ['', ['arn:aws:s3:::', !Ref S3Bucket, '/*']]
             Condition:
-              - StringNotEquals: 's3:x-amz-object-ownership': BucketOwnerEnforced
+              - StringNotEquals: 
+                  's3:x-amz-object-ownership': BucketOwnerEnforced
