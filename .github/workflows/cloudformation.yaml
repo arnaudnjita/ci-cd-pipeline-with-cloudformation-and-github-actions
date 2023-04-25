@@ -19,7 +19,8 @@ jobs:
           --template-file ./single-tier-app.yaml \
           --stack-name my-stack \
           --capabilities CAPABILITY_NAMED_IAM \
-          --parameter-overrides \njita-static-website-bucket \
+          --parameter-overrides \
+            S3BucketName=njita-static-website-bucket \
           --region us-east-1
     - name: Sync with S3 Bucket
       env:
