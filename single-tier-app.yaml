@@ -15,6 +15,7 @@ Resources:
           - Sid: PublicReadGetObject
             Effect: Allow
             Principal: '*'
-            Action: 's3:GetObject'
+            Action: 
+              - 's3:*'
             Resource: !Join ['', ['arn:aws:s3:::', !Ref S3Bucket, '/*']]
             
