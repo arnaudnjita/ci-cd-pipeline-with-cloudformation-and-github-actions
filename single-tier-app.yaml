@@ -1,4 +1,3 @@
-AWSTemplateFormatVersion: "2012-10-17"
 Resources:
   S3Bucket:
     Type: AWS::S3::Bucket
