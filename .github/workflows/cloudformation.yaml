@@ -17,7 +17,7 @@ jobs:
       run: |
         aws cloudformation deploy \
           --template-file ./single-tier-app.yaml \
-          --stack-name njita-stack \
+          --stack-name njita-stack1 \
           --capabilities CAPABILITY_NAMED_IAM \
           --parameter-overrides \
             S3BucketName=njita-static-website-bucket \
