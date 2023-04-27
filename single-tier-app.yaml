@@ -1,25 +1,19 @@
 Resources:
-  MyBucket:
+  S3Bucket:
     Type: AWS::S3::Bucket
     Properties:
-      AccessControl: PublicRead
+      BucketName: njita-static-website-bucket
       WebsiteConfiguration:
         IndexDocument: index.html
-        ErrorDocument: error.html
-  MyBucketPolicy:
+  BucketPolicy:
     Type: AWS::S3::BucketPolicy
     Properties:
-      Bucket: !Ref MyBucket
+      Bucket: !Ref S3Bucket
       PolicyDocument:
         Statement:
           - Sid: PublicReadGetObject
             Effect: Allow
             Principal: '*'
             Action: 's3:GetObject'
-            Resource: !Join ['', ['arn:aws:s3:::', !Ref MyBucket, '/*']]
-Outputs:
-  WebsiteURL:
-    Value: !Join ['', ['http://', !Ref MyBucket, '.s3-website-', !Ref 'AWS::Region', '.amazonaws.com']]
-    Description: URL for the static website
-
+            Resource: !Join ['', ['arn:aws:s3:::', !Ref S3Bucket, '/*']]
             

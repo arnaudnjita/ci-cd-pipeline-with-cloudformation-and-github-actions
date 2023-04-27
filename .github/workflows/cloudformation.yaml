@@ -20,7 +20,7 @@ jobs:
           --stack-name njita-stack \
           --capabilities CAPABILITY_NAMED_IAM \
           --parameter-overrides \
-            S3BucketName=MyBucket \
+            S3BucketName=njita-static-website-bucket \
           --region us-east-1
     - name: Sync with S3 Bucket
       env:
@@ -28,4 +28,4 @@ jobs:
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         AWS_DEFAULT_REGION: us-east-1
       run: |
-        aws s3 sync . s3://MyBucket/ --exclude "*" --include "index.html" --region us-east-1
+        aws s3 sync . s3://njita-static-website-bucket/ --exclude "*" --include "index.html" --region us-east-1
