@@ -9,17 +9,17 @@ Resources:
   MyBucketPolicy:
     Type: AWS::S3::BucketPolicy
     Properties:
-      Bucket: !Ref njita-static-website-bucket1
+      Bucket: !Ref MyBucket1
       PolicyDocument:
         Statement:
           - Sid: PublicReadGetObject
             Effect: Allow
             Principal: '*'
             Action: 's3:GetObject'
-            Resource: !Join ['', ['arn:aws:s3:::', !Ref njita-static-website-bucket1, '/*']]
+            Resource: !Join ['', ['arn:aws:s3:::', !Ref MyBucket1, '/*']]
 Outputs:
   WebsiteURL:
-    Value: !Join ['', ['http://', !Ref njita-static-website-bucket1, '.s3-website-', !Ref 'AWS::Region', '.amazonaws.com']]
+    Value: !Join ['', ['http://', !Ref MyBucket1, '.s3-website-', !Ref 'AWS::Region', '.amazonaws.com']]
     Description: URL for the static website
 
             
