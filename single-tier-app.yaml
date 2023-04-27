@@ -2,7 +2,7 @@ Resources:
   S3Bucket:
     Type: AWS::S3::Bucket
     Properties:
-      BucketName: njita-static-website-bucket
+      BucketName: !Ref njita-static-website-bucket
       AccessControl: BucketOwnerFullControl
       WebsiteConfiguration:
         IndexDocument: index.html
@@ -15,6 +15,6 @@ Resources:
           - Sid: PublicReadGetObject
             Effect: Allow
             Principal: '*'
-            Action: 's3:GetObject'
+            Action: 's3:*'
             Resource: !Join ['', ['arn:aws:s3:::', !Ref S3Bucket, '/*']]
             
