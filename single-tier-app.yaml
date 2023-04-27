@@ -4,7 +4,7 @@ Resources:
     Properties:
       BucketName: njita-static-website-bucket
       PublicAccessBlockConfiguration:
-          BlockPublicAcls: true
+          BlockPublicAcls: false
       OwnershipControls:
           Rules:
             - ObjectOwnership: BucketOwnerEnforced 
